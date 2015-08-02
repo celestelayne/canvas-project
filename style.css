@@ -1,0 +1,86 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
+
+	body {
+		background: #F2F2F2;
+		padding-top: 40px;
+		font-family: 'Source Sans Pro', sans-serif;
+		/*color: #F2F2F2;*/
+		color: black;
+	}
+
+	@media screen and (min-width: 980px) {
+		body {
+			background: #f2f2f2;
+		}
+	}
+
+	@media screen and (max-width: 979px) {
+		body {
+			background: #55DAE1;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		body {
+			background: #A5DE37;
+		}
+	}
+
+	.main-nav {
+		background-color: #1B9AF7;
+		border-bottom: 2px solid #f2f2f2;
+	}
+
+	.nav-links {
+		width: 80%;
+	}
+
+	#main-canvas {
+		background-color: #FF667A;
+		width: 100%;
+	}
+
+	#fab-photo{
+    position: fixed;
+    bottom: 3em;
+    right: .5em;
+	}
+
+	.color-picker {
+		border: none;
+    margin-left: 15px;
+    margin-right: 15px;
+	}
+
+/*	#gallerywrap {
+	  position: relative;
+	  width: 100%;
+	  margin-top: 0;
+	  background-position: center center;
+	  min-height: 700px;
+	  
+	}*/
+
+	.photo-panel {
+	  width: 30%;
+	  padding-bottom : 20%;
+	  background-image: url("http://i.imgur.com/YJapmTz.jpg");
+	  background-size: cover;
+	  margin: 1.66%;
+	  position: relative;
+	  display: inline-block;
+	  float:left;
+	  list-style: none;
+	  background-repeat: no-repeat;
+	  /*padding: 5px;*/
+	}
+
+	 footer {
+	 	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1B9AF7;
+/*    color: #f2f2f2;*/
+    border-top: 2px solid #f2f2f2;
+  }

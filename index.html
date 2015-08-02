@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sketch.it</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/jquery.js" type="text/javascript"></script>
+	
+	<!-- Bootstrap CDN -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="type/css" >
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" type="type/css" >
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+	
+	<!-- Material Design for Bootstrap CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/roboto.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js" type="text/javascript"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="style.css" type="type/css">
+	
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+
+	<!-- Spectrum Color Picker -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.css">
+
+	<!-- Fabric CDN -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
+
+	<!-- Define inlined Javascript associate it with main-canvas -->
+	<script type="text/javascript" canvas="main-canvas">
+		$(document).ready(function() {
+
+
+			var canvas = new fabric.Canvas('main-canvas', {
+				isDrawingMode: true
+			});
+
+			window.addEventListener('resize', resizeCanvas, false);
+
+  function resizeCanvas() {
+    canvas.setHeight(window.innerHeight);
+    canvas.setWidth(window.innerWidth);
+    canvas.renderAll();
+  }
+
+			var drawingMode = $('drawing-mode'),
+					clearCanvas = $('clear-canvas'),
+					colorPicker = $('color-picker');
+
+					// $("#custom").spectrum({
+					//     color: "#f00"
+					// });
+
+			clearCanvas.onclick = function() { canvas.clear() };
+
+			drawingMode.onclick = function(){
+				canvas.isDrawingMode = !canvas.isDrawingMode;
+				if (canvas.isDrawingMode) {
+					drawingMode.innerHTML = "Enter edit mode";
+				} else {
+					drawingMode.innerHTML = "Enter draw mode"
+				}
+			};
+
+
+
+
+			canvas.freeDrawingBrush.color = "#7B72E9";
+			canvas.freeDrawingBrush.width = 10;
+			resizeCanvas();
+		})();
+	</script>
+
+</head>
+	<body>
+			
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container-fluid main-nav">
+			    <div class="navbar-header">
+			    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				    	<span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand" href="javascript:void(0)">Sketch.it</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="navbar-collapse collapse navbar-responsive-collapse" id="bs-example-navbar-collapse-1">
+		        <ul class="nav navbar-nav">
+		        	<li class="active"><a href="javascript:void(0)">Upload Image<span class="sr-only">(current)</span></a></li>
+
+							<!-- <form id="uploadForm" method="post" enctype="multipart/form-data" action="/upload">
+							    <input type="file" name="userPhoto" />
+							    <button type="submit" value="Submit" class="active">Upload Image</button>
+							</form> -->
+
+		        	<li><a href="javascript:void(0)">Choose Color:<input class="color-picker" type='color' value="#FEAE1B" id="color-picker" /></a></li>
+		        </ul>
+		        <ul class="nav navbar-nav navbar-right">
+        			<li><a href="gallery.html">Image Gallery</a></li>
+        			<li><a href="javascript:void(0)">Clear Screen</a></li>
+        		</ul>
+		       </div>
+			  </div>
+			</nav>
+
+			<div class= " large-centered columns">
+				<canvas id="main-canvas" >
+					<p>Oops, your browser doesn't support canvas.</p>
+				</canvas>
+				<a href="javascript:void(0)" class="btn btn-warning btn-fab btn-raised mdi-content-add" id="fab-photo"></a>
+			</div>
+
+			<footer class="footer">
+				<div class="container"></div>
+			</footer>
+
+
+		
+	</body>
+</html>
